@@ -7,10 +7,13 @@
 //
 
 #import "ListViewController.h"
+#import "ListViewCell.h"
+#import "ListDataModel.h"
 
 @interface ListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
+@property (strong, nonatomic) NSArray *arrayOfData;
 
 @end
 
@@ -19,6 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([ListViewCell class]) bundle:nil];
+    [self.listTableView registerNib:cellNib forCellReuseIdentifier:NSStringFromClass([ListViewCell class])];
+    
+    NSMutableArray *tempArray = [NSMutableArray new];
+    for(int i=0; i<5; i++) {
+        ListDataModel *model = [ListDataModel new];
+        model.strTitle = @"title";
+        model.strDescription = @"description";
+        [tempArray addObject:model];
+    }
+    self.arrayOfData = tempArray;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,34 +50,37 @@
 #pragma Tableview datasource methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"listCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    ListDataModel *data = (ListDataModel *)[self.arrayOfData objectAtIndex:indexPath.row];
+    ListViewCell *cell = (ListViewCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ListViewCell class])];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor greenColor];
+    
+    cell.lblTitle.text = data.strTitle;
+    cell.lblDescription.text = data.strDescription;
+    cell.imageView.image = [UIImage imageNamed:@"loading"];
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [self.arrayOfData count];
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Test";
+    return @"About Canada";
 }
 
 #pragma Tableview delegate methods
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100.0f;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 45;
+    return 100.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -15,6 +15,9 @@
 		B891F64120301BCB0003584A /* AboutCanadaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F64020301BCB0003584A /* AboutCanadaTests.m */; };
 		B891F64E20301DEE0003584A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F64D20301DEE0003584A /* LoginViewController.m */; };
 		B891F652203026E20003584A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F651203026E20003584A /* ListViewController.m */; };
+		B891F66120303ECB0003584A /* ListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F66020303ECB0003584A /* ListDataModel.m */; };
+		B8D272B1203089C600343907 /* ListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272AF203089C600343907 /* ListViewCell.m */; };
+		B8D272B2203089C600343907 /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D272B0203089C600343907 /* ListViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,11 @@
 		B891F64D20301DEE0003584A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		B891F650203026E20003584A /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		B891F651203026E20003584A /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		B891F65F20303ECB0003584A /* ListDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListDataModel.h; sourceTree = "<group>"; };
+		B891F66020303ECB0003584A /* ListDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListDataModel.m; sourceTree = "<group>"; };
+		B8D272AE203089C600343907 /* ListViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewCell.h; sourceTree = "<group>"; };
+		B8D272AF203089C600343907 /* ListViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewCell.m; sourceTree = "<group>"; };
+		B8D272B0203089C600343907 /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 		B891F62620301BCA0003584A /* AboutCanada */ = {
 			isa = PBXGroup;
 			children = (
+				B891F65E20303EA00003584A /* Model */,
 				B891F65420302E020003584A /* CustomCell */,
 				B891F64F203026C40003584A /* Home */,
 				B891F62720301BCA0003584A /* AppDelegate.h */,
@@ -128,8 +137,20 @@
 		B891F65420302E020003584A /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				B8D272AE203089C600343907 /* ListViewCell.h */,
+				B8D272AF203089C600343907 /* ListViewCell.m */,
+				B8D272B0203089C600343907 /* ListViewCell.xib */,
 			);
 			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		B891F65E20303EA00003584A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B891F65F20303ECB0003584A /* ListDataModel.h */,
+				B891F66020303ECB0003584A /* ListDataModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D272B2203089C600343907 /* ListViewCell.xib in Resources */,
 				B891F63420301BCB0003584A /* LaunchScreen.storyboard in Resources */,
 				B891F63120301BCB0003584A /* Assets.xcassets in Resources */,
 				B891F62F20301BCB0003584A /* Main.storyboard in Resources */,
@@ -235,8 +257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B891F63720301BCB0003584A /* main.m in Sources */,
+				B891F66120303ECB0003584A /* ListDataModel.m in Sources */,
 				B891F62920301BCA0003584A /* AppDelegate.m in Sources */,
 				B891F652203026E20003584A /* ListViewController.m in Sources */,
+				B8D272B1203089C600343907 /* ListViewCell.m in Sources */,
 				B891F64E20301DEE0003584A /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -72,14 +72,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRZ-ZQ-XFH" userLabel="headerView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About canada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy4-E5-kIu">
-                                        <rect key="frame" x="134.5" y="22.5" width="106.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-Wh-T84">
-                                        <rect key="frame" x="8" y="22.5" width="48" height="30"/>
+                                        <rect key="frame" x="10" y="15" width="48" height="30"/>
                                         <state key="normal" title="Logout"/>
                                         <connections>
                                             <action selector="btnLogoutTapped:" destination="ljb-YO-kkC" eventType="touchUpInside" id="6tP-3f-gTD"/>
@@ -88,11 +82,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="xsm-Wh-T84" firstAttribute="top" secondItem="Iy4-E5-kIu" secondAttribute="top" id="Cs2-pM-zXi"/>
                                     <constraint firstAttribute="height" constant="50" id="F55-Eh-Mg5"/>
-                                    <constraint firstItem="Iy4-E5-kIu" firstAttribute="centerY" secondItem="MRZ-ZQ-XFH" secondAttribute="centerY" constant="8" id="G5s-Zv-Qpp"/>
-                                    <constraint firstItem="Iy4-E5-kIu" firstAttribute="centerX" secondItem="MRZ-ZQ-XFH" secondAttribute="centerX" id="SYt-Ci-Oa0"/>
-                                    <constraint firstItem="xsm-Wh-T84" firstAttribute="leading" secondItem="MRZ-ZQ-XFH" secondAttribute="leading" constant="8" id="i1k-N0-StK"/>
+                                    <constraint firstItem="xsm-Wh-T84" firstAttribute="leading" secondItem="MRZ-ZQ-XFH" secondAttribute="leading" constant="10" id="N0O-Tu-1Ta"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xsm-Wh-T84" secondAttribute="trailing" constant="20" symbolic="YES" id="Rqz-gZ-wUF"/>
+                                    <constraint firstItem="xsm-Wh-T84" firstAttribute="top" secondItem="MRZ-ZQ-XFH" secondAttribute="top" constant="15" id="Xxs-Se-Hcd"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d9M-uk-b8f">
