@@ -14,6 +14,7 @@
 		B891F63720301BCB0003584A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F63620301BCB0003584A /* main.m */; };
 		B891F64120301BCB0003584A /* AboutCanadaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F64020301BCB0003584A /* AboutCanadaTests.m */; };
 		B891F64E20301DEE0003584A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F64D20301DEE0003584A /* LoginViewController.m */; };
+		B891F652203026E20003584A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F651203026E20003584A /* ListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		B891F64220301BCB0003584A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B891F64C20301DEE0003584A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B891F64D20301DEE0003584A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B891F650203026E20003584A /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		B891F651203026E20003584A /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 		B891F62620301BCA0003584A /* AboutCanada */ = {
 			isa = PBXGroup;
 			children = (
+				B891F65420302E020003584A /* CustomCell */,
+				B891F64F203026C40003584A /* Home */,
 				B891F62720301BCA0003584A /* AppDelegate.h */,
 				B891F62820301BCA0003584A /* AppDelegate.m */,
 				B891F64B20301DEE0003584A /* Login */,
@@ -109,6 +114,22 @@
 				B891F64D20301DEE0003584A /* LoginViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		B891F64F203026C40003584A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B891F650203026E20003584A /* ListViewController.h */,
+				B891F651203026E20003584A /* ListViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B891F65420302E020003584A /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +236,7 @@
 			files = (
 				B891F63720301BCB0003584A /* main.m in Sources */,
 				B891F62920301BCA0003584A /* AppDelegate.m in Sources */,
+				B891F652203026E20003584A /* ListViewController.m in Sources */,
 				B891F64E20301DEE0003584A /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

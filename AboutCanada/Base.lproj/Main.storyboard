@@ -30,6 +30,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQd-Tc-6aT">
                                 <rect key="frame" x="168.5" y="388.5" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4DY-uF-lHg"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tlj-oT-HaY">
                                 <rect key="frame" x="144" y="274" width="87.5" height="30"/>
@@ -49,9 +52,78 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="txtPassword" destination="5s1-ds-hG8" id="sl6-5a-2Ot"/>
+                        <outlet property="txtUsername" destination="Tlj-oT-HaY" id="FzY-Va-1zV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="457" y="-120"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="5bm-hu-slE">
+            <objects>
+                <viewController storyboardIdentifier="ListViewController" id="ljb-YO-kkC" customClass="ListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sc0-2q-jM1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRZ-ZQ-XFH" userLabel="headerView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About canada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy4-E5-kIu">
+                                        <rect key="frame" x="134.5" y="22.5" width="106.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-Wh-T84">
+                                        <rect key="frame" x="8" y="22.5" width="48" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="btnLogoutTapped:" destination="ljb-YO-kkC" eventType="touchUpInside" id="6tP-3f-gTD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="xsm-Wh-T84" firstAttribute="top" secondItem="Iy4-E5-kIu" secondAttribute="top" id="Cs2-pM-zXi"/>
+                                    <constraint firstAttribute="height" constant="50" id="F55-Eh-Mg5"/>
+                                    <constraint firstItem="Iy4-E5-kIu" firstAttribute="centerY" secondItem="MRZ-ZQ-XFH" secondAttribute="centerY" constant="8" id="G5s-Zv-Qpp"/>
+                                    <constraint firstItem="Iy4-E5-kIu" firstAttribute="centerX" secondItem="MRZ-ZQ-XFH" secondAttribute="centerX" id="SYt-Ci-Oa0"/>
+                                    <constraint firstItem="xsm-Wh-T84" firstAttribute="leading" secondItem="MRZ-ZQ-XFH" secondAttribute="leading" constant="8" id="i1k-N0-StK"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d9M-uk-b8f">
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ljb-YO-kkC" id="0c3-Gn-coz"/>
+                                    <outlet property="delegate" destination="ljb-YO-kkC" id="O3B-wy-kkj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WXK-r1-Jse" firstAttribute="bottom" secondItem="d9M-uk-b8f" secondAttribute="bottom" id="Axl-tM-kJR"/>
+                            <constraint firstItem="d9M-uk-b8f" firstAttribute="leading" secondItem="WXK-r1-Jse" secondAttribute="leading" id="EGP-GP-wFG"/>
+                            <constraint firstItem="MRZ-ZQ-XFH" firstAttribute="top" secondItem="sc0-2q-jM1" secondAttribute="top" id="HeC-dF-7fE"/>
+                            <constraint firstItem="MRZ-ZQ-XFH" firstAttribute="leading" secondItem="WXK-r1-Jse" secondAttribute="leading" id="K1X-k1-lQa"/>
+                            <constraint firstItem="d9M-uk-b8f" firstAttribute="top" secondItem="MRZ-ZQ-XFH" secondAttribute="bottom" id="LmZ-U0-oFq"/>
+                            <constraint firstItem="WXK-r1-Jse" firstAttribute="trailing" secondItem="MRZ-ZQ-XFH" secondAttribute="trailing" id="TwQ-Ca-oWa"/>
+                            <constraint firstItem="WXK-r1-Jse" firstAttribute="trailing" secondItem="d9M-uk-b8f" secondAttribute="trailing" id="cEU-Jh-YYJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WXK-r1-Jse"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="B46-ED-SbM"/>
+                    <connections>
+                        <outlet property="listTableView" destination="d9M-uk-b8f" id="VOq-HW-Vta"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EnF-I1-iGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1633" y="-103"/>
         </scene>
     </scenes>
 </document>
