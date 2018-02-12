@@ -8,12 +8,17 @@
 
 #import "ListViewController.h"
 #import "ListViewCell.h"
+#import "ListHeadDataModel.h"
+#import "ListServiceManager.h"
 #import "ListDataModel.h"
+#import "UIImageView+WebCache.h"
 
 @interface ListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 @property (strong, nonatomic) NSArray *arrayOfData;
+@property (strong, nonatomic) ListHeadDataModel *dataModel;
+@property (strong, nonatomic) UIView *loadingView;
 
 @end
 
@@ -26,19 +31,39 @@
     UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([ListViewCell class]) bundle:nil];
     [self.listTableView registerNib:cellNib forCellReuseIdentifier:NSStringFromClass([ListViewCell class])];
     
-    NSMutableArray *tempArray = [NSMutableArray new];
-    for(int i=0; i<5; i++) {
-        ListDataModel *model = [ListDataModel new];
-        model.strTitle = @"title";
-        model.strDescription = @"description";
-        [tempArray addObject:model];
-    }
-    self.arrayOfData = tempArray;
+    self.loadingView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.loadingView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.8f];
+    self.loadingView.alpha = 0.7f;
+    [self.view addSubview:self.loadingView];
+    
+    
+    [self getListOfData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Fetch data
+
+- (void)getListOfData {
+    ListServiceManager *listManager = [[ListServiceManager alloc] init];
+    [listManager getListOfDatawithCompltionHandler:^(id resultData, NSError *error) {
+
+        self.dataModel = [ListHeadDataModel new];
+        if (resultData) {
+            [self.dataModel configureModelWithDictionary:resultData];
+        } else {
+            [self.loadingView removeFromSuperview];
+        }
+        
+        self.arrayOfData = self.dataModel.arrListData;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.loadingView removeFromSuperview];
+            [self.listTableView reloadData];
+        });
+    }];
 }
 
 #pragma mark - Button action
@@ -57,11 +82,9 @@
     ListDataModel *data = (ListDataModel *)[self.arrayOfData objectAtIndex:indexPath.row];
     ListViewCell *cell = (ListViewCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ListViewCell class])];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     cell.lblTitle.text = data.strTitle;
     cell.lblDescription.text = data.strDescription;
-    cell.imageView.image = [UIImage imageNamed:@"loading"];
-    
+    [cell.imgView setImageWithURL:[NSURL URLWithString:data.imgUrl] placeholderImage:[UIImage imageNamed:@"loading"] options:0];
     return cell;
 }
 
@@ -70,7 +93,7 @@
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"About Canada";
+    return self.dataModel.strMainTitle;
 }
 
 #pragma Tableview delegate methods
@@ -79,16 +102,12 @@
     return 100.0f;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 40;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 @end
