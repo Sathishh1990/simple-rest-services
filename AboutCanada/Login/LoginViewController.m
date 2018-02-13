@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 
 @end
 
@@ -21,12 +22,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self validateInput];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Private method
+
+-(void)validateInput {
+    if (self.txtUsername.text.length && self.txtPassword.text.length >= 5) {
+        self.btnLogin.enabled = YES;
+    } else {
+        self.btnLogin.enabled = NO;
+    }
 }
 
 #pragma mark - IBAction method
@@ -34,6 +45,27 @@
     UIStoryboard *homeStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ListViewController *listVC = [homeStoryBoard instantiateViewControllerWithIdentifier:@"ListViewController"];
     [self presentViewController:listVC animated:YES completion:nil];
+}
+
+#pragma mark - UITextFielddelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self validateInput];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    BOOL isHaveSpecialChar = NO;
+    if (textField == self.txtUsername) {
+        NSString *customStr = @"~`!@#$%^&*()+=-/;:\"\'{}[]<>^?, ";
+        NSCharacterSet *alphaSet = [NSCharacterSet characterSetWithCharactersInString:customStr];
+        isHaveSpecialChar = [[string stringByTrimmingCharactersInSet:alphaSet] isEqualToString:@""];
+    }
+    [self validateInput];
+    return !isHaveSpecialChar;
 }
 
 @end
