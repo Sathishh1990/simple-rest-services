@@ -25,18 +25,15 @@
     [self validateInput];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Private method
 
 -(void)validateInput {
     if (self.txtUsername.text.length && self.txtPassword.text.length >= 5) {
         self.btnLogin.enabled = YES;
+        self.btnLogin.backgroundColor = [UIColor orangeColor];
     } else {
         self.btnLogin.enabled = NO;
+        self.btnLogin.backgroundColor = [UIColor lightGrayColor];
     }
 }
 

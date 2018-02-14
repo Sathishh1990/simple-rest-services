@@ -31,7 +31,9 @@
         } else {
             model.imgUrl = @"";
         }
-        [tempArr addObject:model];
+        if (model.strTitle.length || model.strDescription.length || model.imgUrl.length) {
+            [tempArr addObject:model];
+        }
     }
     self.arrListData = tempArr;
 }

@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSArray *arrayOfData;
 @property (strong, nonatomic) ListHeadDataModel *dataModel;
 @property (strong, nonatomic) UIView *loadingView;
+@property (weak, nonatomic) IBOutlet UIView *erroeView;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 @end
 
@@ -28,14 +30,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([ListViewCell class]) bundle:nil];
-    [self.listTableView registerNib:cellNib forCellReuseIdentifier:NSStringFromClass([ListViewCell class])];
-    
     self.loadingView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.loadingView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.8f];
+    self.loadingView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.8f];
     self.loadingView.alpha = 0.7f;
-    [self.view addSubview:self.loadingView];
+    UILabel *lblLoading = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    lblLoading.text = @"Loading...";
+    lblLoading.textColor = [UIColor whiteColor];
+    lblLoading.center = self.loadingView.center;
+    [self.loadingView addSubview:lblLoading];
     
+    [self.view addSubview:self.loadingView];
     
     [self getListOfData];
 }
@@ -50,18 +54,21 @@
 - (void)getListOfData {
     ListServiceManager *listManager = [[ListServiceManager alloc] init];
     [listManager getListOfDatawithCompltionHandler:^(id resultData, NSError *error) {
-
-        self.dataModel = [ListHeadDataModel new];
-        if (resultData) {
-            [self.dataModel configureModelWithDictionary:resultData];
-        } else {
-            [self.loadingView removeFromSuperview];
-        }
-        
-        self.arrayOfData = self.dataModel.arrListData;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.loadingView removeFromSuperview];
-            [self.listTableView reloadData];
+            self.dataModel = [ListHeadDataModel new];
+            if (resultData) {
+                [self.dataModel configureModelWithDictionary:resultData];
+                self.arrayOfData = self.dataModel.arrListData;
+                self.listTableView.hidden = NO;
+                self.erroeView.hidden = YES;
+                [self.loadingView removeFromSuperview];
+                [self.listTableView reloadData];
+            } else {
+                self.listTableView.hidden = YES;
+                self.erroeView.hidden = NO;
+                self.errorLabel.text = error.localizedDescription;
+                [self.loadingView removeFromSuperview];
+            }
         });
     }];
 }
@@ -84,7 +91,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.lblTitle.text = data.strTitle;
     cell.lblDescription.text = data.strDescription;
-    [cell.imgView setImageWithURL:[NSURL URLWithString:data.imgUrl] placeholderImage:[UIImage imageNamed:@"loading"] options:0];
+    [cell.imgView setImageWithURL:[NSURL URLWithString:data.imgUrl] placeholderImage:[UIImage imageNamed:@"noimage"] options:0];
     return cell;
 }
 
@@ -108,6 +115,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 40;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.backgroundView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f];;
+    header.textLabel.textColor = [UIColor whiteColor];
+    header.textLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 @end
