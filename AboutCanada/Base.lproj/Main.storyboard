@@ -107,13 +107,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRZ-ZQ-XFH" userLabel="headerView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-Wh-T84">
-                                        <rect key="frame" x="10" y="15" width="48" height="30"/>
-                                        <state key="normal" title="Logout">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-Wh-T84">
+                                        <rect key="frame" x="10" y="15" width="53" height="30"/>
+                                        <state key="normal" title="Refresh">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnLogoutTapped:" destination="ljb-YO-kkC" eventType="touchUpInside" id="6tP-3f-gTD"/>
+                                            <action selector="btnRefreshTapped:" destination="ljb-YO-kkC" eventType="touchUpInside" id="ifb-84-3Bb"/>
                                         </connections>
                                     </button>
                                 </subviews>

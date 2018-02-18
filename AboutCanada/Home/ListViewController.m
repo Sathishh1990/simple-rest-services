@@ -30,18 +30,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.loadingView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.loadingView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.8f];
-    self.loadingView.alpha = 0.7f;
-    UILabel *lblLoading = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    lblLoading.text = @"Loading...";
-    lblLoading.textColor = [UIColor whiteColor];
-    lblLoading.center = self.loadingView.center;
-    [self.loadingView addSubview:lblLoading];
+    [self setUpLoadingView];
     
-    [self.view addSubview:self.loadingView];
-    
-    [self getListOfData];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [self.listTableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshPage:) forControlEvents:UIControlEventValueChanged];
+
+    [self getListOfDataWithSender:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +46,7 @@
 
 #pragma mark - Fetch data
 
-- (void)getListOfData {
+- (void)getListOfDataWithSender:(UIRefreshControl *)sender {
     ListServiceManager *listManager = [[ListServiceManager alloc] init];
     [listManager getListOfDatawithCompltionHandler:^(id resultData, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -69,14 +64,18 @@
                 self.errorLabel.text = error.localizedDescription;
                 [self.loadingView removeFromSuperview];
             }
+            if (sender){
+                [sender endRefreshing];
+            }
         });
     }];
 }
 
 #pragma mark - Button action
 
-- (IBAction)btnLogoutTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)btnRefreshTapped:(id)sender {
+    [self setUpLoadingView];
+    [self getListOfDataWithSender:nil];
 }
 
 #pragma Tableview datasource methods
@@ -122,6 +121,25 @@
     header.backgroundView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0f];;
     header.textLabel.textColor = [UIColor whiteColor];
     header.textLabel.textAlignment = NSTextAlignmentCenter;
+}
+
+#pragma mark - private method
+
+- (void)setUpLoadingView {
+    self.loadingView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.loadingView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.8f];
+    self.loadingView.alpha = 0.7f;
+    UILabel *lblLoading = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    lblLoading.text = @"Loading...";
+    lblLoading.textColor = [UIColor whiteColor];
+    lblLoading.center = self.loadingView.center;
+    [self.loadingView addSubview:lblLoading];
+    
+    [self.view addSubview:self.loadingView];
+}
+
+- (void)refreshPage:(UIRefreshControl *)sender {
+    [self getListOfDataWithSender:sender];
 }
 
 @end
