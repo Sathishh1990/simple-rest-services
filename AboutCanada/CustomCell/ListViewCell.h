@@ -10,8 +10,13 @@
 
 @interface ListViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblDescription;
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+
+@property (strong, nonatomic) UIImageView *imgView;
+@property (strong, nonatomic) UILabel *lblTitle;
+@property (strong, nonatomic) UILabel *lblDescription;
+
+- (void)setTitle:(NSString *)title description:(NSString *)description imgageUrl:(NSString *)imgUrl;
+- (CGFloat)calculateCellHeight;
 
 @end

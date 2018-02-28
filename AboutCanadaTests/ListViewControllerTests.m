@@ -12,7 +12,8 @@
 @interface ListViewController (test) <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
-- (IBAction)btnLogoutTapped:(id)sender;
+- (void)btnRefreshTapped:(UIButton *)sender;
+- (void)refreshPage:(UIRefreshControl *)sender;
 
 @end
 
@@ -26,8 +27,7 @@
 
 - (void)setUp {
     [super setUp];
-    UIStoryboard *homeStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.listViewController = [homeStoryBoard instantiateViewControllerWithIdentifier:@"ListViewController"];
+    self.listViewController = [[ListViewController alloc] init];
         for (UIView *view in self.listViewController.view.subviews) {
             if ([view isKindOfClass:[UITableView class]]){
                 self.listViewController.listTableView = (UITableView *)view;
@@ -56,8 +56,13 @@
 
 - (void)testReuseIdentifierCubaWarningCell {
     UITableViewCell *cell = [self.listViewController tableView:self.listViewController.listTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    NSString *expectedReuseIdentifier = @"ListViewCell";
+    NSString *expectedReuseIdentifier = @"listCell";
     XCTAssertTrue([cell.reuseIdentifier isEqualToString:expectedReuseIdentifier], @"Table does not create reusable cells");
+}
+
+- (void)testPrvateMethods {
+    [self.listViewController refreshPage:nil];
+    [self.listViewController btnRefreshTapped:nil];
 }
 
 @end

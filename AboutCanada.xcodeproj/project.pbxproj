@@ -22,19 +22,16 @@
 		B81C12F0203403F5005449DA /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = B81C12E2203403F4005449DA /* UIImage+WebP.m */; };
 		B81C12F1203403F5005449DA /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B81C12E4203403F4005449DA /* UIImageView+WebCache.m */; };
 		B891F62920301BCA0003584A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F62820301BCA0003584A /* AppDelegate.m */; };
-		B891F62F20301BCB0003584A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B891F62D20301BCB0003584A /* Main.storyboard */; };
 		B891F63120301BCB0003584A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B891F63020301BCB0003584A /* Assets.xcassets */; };
 		B891F63420301BCB0003584A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B891F63220301BCB0003584A /* LaunchScreen.storyboard */; };
 		B891F63720301BCB0003584A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F63620301BCB0003584A /* main.m */; };
 		B891F64120301BCB0003584A /* AboutCanadaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F64020301BCB0003584A /* AboutCanadaTests.m */; };
-		B891F64E20301DEE0003584A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F64D20301DEE0003584A /* LoginViewController.m */; };
 		B891F652203026E20003584A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891F651203026E20003584A /* ListViewController.m */; };
+		B8B7B8C12046742C00BBE7CA /* ListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B7B8C02046742C00BBE7CA /* ListViewControllerTests.m */; };
 		B8D272B1203089C600343907 /* ListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272AF203089C600343907 /* ListViewCell.m */; };
 		B8D272B72030940A00343907 /* ListServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272B62030940A00343907 /* ListServiceManager.m */; };
 		B8D272BB20309BE100343907 /* ListHeadDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272BA20309BE100343907 /* ListHeadDataModel.m */; };
 		B8D272BE20309FD500343907 /* ListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272BD20309FD500343907 /* ListDataModel.m */; };
-		B8D272F12030B10B00343907 /* LoginViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272F02030B10B00343907 /* LoginViewControllerTests.m */; };
-		B8D272F32030B1F100343907 /* ListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272F22030B1F100343907 /* ListViewControllerTests.m */; };
 		B8D272F52030B60100343907 /* ListHeadDataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D272F42030B60100343907 /* ListHeadDataModelTests.m */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +77,6 @@
 		B891F62420301BCA0003584A /* AboutCanada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AboutCanada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B891F62720301BCA0003584A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B891F62820301BCA0003584A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B891F62E20301BCB0003584A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B891F63020301BCB0003584A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B891F63320301BCB0003584A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B891F63520301BCB0003584A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,10 +84,9 @@
 		B891F63C20301BCB0003584A /* AboutCanadaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AboutCanadaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B891F64020301BCB0003584A /* AboutCanadaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutCanadaTests.m; sourceTree = "<group>"; };
 		B891F64220301BCB0003584A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B891F64C20301DEE0003584A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		B891F64D20301DEE0003584A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		B891F650203026E20003584A /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		B891F651203026E20003584A /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		B8B7B8C02046742C00BBE7CA /* ListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewControllerTests.m; sourceTree = "<group>"; };
 		B8D272AE203089C600343907 /* ListViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewCell.h; sourceTree = "<group>"; };
 		B8D272AF203089C600343907 /* ListViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewCell.m; sourceTree = "<group>"; };
 		B8D272B52030940A00343907 /* ListServiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListServiceManager.h; sourceTree = "<group>"; };
@@ -100,8 +95,6 @@
 		B8D272BA20309BE100343907 /* ListHeadDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListHeadDataModel.m; sourceTree = "<group>"; };
 		B8D272BC20309FD500343907 /* ListDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListDataModel.h; sourceTree = "<group>"; };
 		B8D272BD20309FD500343907 /* ListDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListDataModel.m; sourceTree = "<group>"; };
-		B8D272F02030B10B00343907 /* LoginViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewControllerTests.m; sourceTree = "<group>"; };
-		B8D272F22030B1F100343907 /* ListViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewControllerTests.m; sourceTree = "<group>"; };
 		B8D272F42030B60100343907 /* ListHeadDataModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListHeadDataModelTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,7 +187,6 @@
 				B891F62720301BCA0003584A /* AppDelegate.h */,
 				B891F62820301BCA0003584A /* AppDelegate.m */,
 				B891F64B20301DEE0003584A /* Login */,
-				B891F62D20301BCB0003584A /* Main.storyboard */,
 				B891F63020301BCB0003584A /* Assets.xcassets */,
 				B891F63220301BCB0003584A /* LaunchScreen.storyboard */,
 				B891F63520301BCB0003584A /* Info.plist */,
@@ -208,8 +200,7 @@
 			children = (
 				B891F64020301BCB0003584A /* AboutCanadaTests.m */,
 				B891F64220301BCB0003584A /* Info.plist */,
-				B8D272F02030B10B00343907 /* LoginViewControllerTests.m */,
-				B8D272F22030B1F100343907 /* ListViewControllerTests.m */,
+				B8B7B8C02046742C00BBE7CA /* ListViewControllerTests.m */,
 				B8D272F42030B60100343907 /* ListHeadDataModelTests.m */,
 				B81C12C62033FBB2005449DA /* ListServiceManagerTests.m */,
 			);
@@ -219,8 +210,6 @@
 		B891F64B20301DEE0003584A /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B891F64C20301DEE0003584A /* LoginViewController.h */,
-				B891F64D20301DEE0003584A /* LoginViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -347,7 +336,6 @@
 			files = (
 				B891F63420301BCB0003584A /* LaunchScreen.storyboard in Resources */,
 				B891F63120301BCB0003584A /* Assets.xcassets in Resources */,
-				B891F62F20301BCB0003584A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +372,6 @@
 				B8D272BB20309BE100343907 /* ListHeadDataModel.m in Sources */,
 				B8D272B1203089C600343907 /* ListViewCell.m in Sources */,
 				B81C12EB203403F5005449DA /* SDWebImageManager.m in Sources */,
-				B891F64E20301DEE0003584A /* LoginViewController.m in Sources */,
 				B81C12E6203403F4005449DA /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,9 +380,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8D272F12030B10B00343907 /* LoginViewControllerTests.m in Sources */,
-				B8D272F32030B1F100343907 /* ListViewControllerTests.m in Sources */,
 				B891F64120301BCB0003584A /* AboutCanadaTests.m in Sources */,
+				B8B7B8C12046742C00BBE7CA /* ListViewControllerTests.m in Sources */,
 				B8D272F52030B60100343907 /* ListHeadDataModelTests.m in Sources */,
 				B81C12C72033FBB2005449DA /* ListServiceManagerTests.m in Sources */,
 			);
@@ -412,14 +398,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B891F62D20301BCB0003584A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B891F62E20301BCB0003584A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B891F63220301BCB0003584A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
